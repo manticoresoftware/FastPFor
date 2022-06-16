@@ -8938,18 +8938,70 @@ static void __SIMD_fastunpack1_32(const __m128i *__restrict__ in,
   __m128i OutReg1, OutReg2, OutReg3, OutReg4;
   const __m128i mask = _mm_set1_epi32(1);
 
-  unsigned shift = 0;
-
-  for (unsigned i = 0; i < 8; ++i) {
-    OutReg1 = _mm_and_si128(_mm_srli_epi32(InReg1, shift++), mask);
-    OutReg2 = _mm_and_si128(_mm_srli_epi32(InReg2, shift++), mask);
-    OutReg3 = _mm_and_si128(_mm_srli_epi32(InReg1, shift++), mask);
-    OutReg4 = _mm_and_si128(_mm_srli_epi32(InReg2, shift++), mask);
-    _mm_storeu_si128(out++, OutReg1);
-    _mm_storeu_si128(out++, OutReg2);
-    _mm_storeu_si128(out++, OutReg3);
-    _mm_storeu_si128(out++, OutReg4);
-  }
+  OutReg1 = _mm_and_si128(_mm_srli_epi32(InReg1, 0), mask);
+  OutReg2 = _mm_and_si128(_mm_srli_epi32(InReg2, 1), mask);
+  OutReg3 = _mm_and_si128(_mm_srli_epi32(InReg1, 2), mask);
+  OutReg4 = _mm_and_si128(_mm_srli_epi32(InReg2, 3), mask);
+  _mm_storeu_si128(out, OutReg1);
+  _mm_storeu_si128(out + 1, OutReg2);
+  _mm_storeu_si128(out + 2, OutReg3);
+  _mm_storeu_si128(out + 3, OutReg4);
+  OutReg1 = _mm_and_si128(_mm_srli_epi32(InReg1, 4), mask);
+  OutReg2 = _mm_and_si128(_mm_srli_epi32(InReg2, 5), mask);
+  OutReg3 = _mm_and_si128(_mm_srli_epi32(InReg1, 6), mask);
+  OutReg4 = _mm_and_si128(_mm_srli_epi32(InReg2, 7), mask);
+  _mm_storeu_si128(out + 4, OutReg1);
+  _mm_storeu_si128(out + 5, OutReg2);
+  _mm_storeu_si128(out + 6, OutReg3);
+  _mm_storeu_si128(out + 7, OutReg4);
+  OutReg1 = _mm_and_si128(_mm_srli_epi32(InReg1, 8), mask);
+  OutReg2 = _mm_and_si128(_mm_srli_epi32(InReg2, 9), mask);
+  OutReg3 = _mm_and_si128(_mm_srli_epi32(InReg1, 10), mask);
+  OutReg4 = _mm_and_si128(_mm_srli_epi32(InReg2, 11), mask);
+  _mm_storeu_si128(out + 8, OutReg1);
+  _mm_storeu_si128(out + 9, OutReg2);
+  _mm_storeu_si128(out + 10, OutReg3);
+  _mm_storeu_si128(out + 11, OutReg4);
+  OutReg1 = _mm_and_si128(_mm_srli_epi32(InReg1, 12), mask);
+  OutReg2 = _mm_and_si128(_mm_srli_epi32(InReg2, 13), mask);
+  OutReg3 = _mm_and_si128(_mm_srli_epi32(InReg1, 14), mask);
+  OutReg4 = _mm_and_si128(_mm_srli_epi32(InReg2, 15), mask);
+  _mm_storeu_si128(out + 12, OutReg1);
+  _mm_storeu_si128(out + 13, OutReg2);
+  _mm_storeu_si128(out + 14, OutReg3);
+  _mm_storeu_si128(out + 15, OutReg4);
+  OutReg1 = _mm_and_si128(_mm_srli_epi32(InReg1, 16), mask);
+  OutReg2 = _mm_and_si128(_mm_srli_epi32(InReg2, 17), mask);
+  OutReg3 = _mm_and_si128(_mm_srli_epi32(InReg1, 18), mask);
+  OutReg4 = _mm_and_si128(_mm_srli_epi32(InReg2, 19), mask);
+  _mm_storeu_si128(out + 16, OutReg1);
+  _mm_storeu_si128(out + 17, OutReg2);
+  _mm_storeu_si128(out + 18, OutReg3);
+  _mm_storeu_si128(out + 19, OutReg4);
+  OutReg1 = _mm_and_si128(_mm_srli_epi32(InReg1, 20), mask);
+  OutReg2 = _mm_and_si128(_mm_srli_epi32(InReg2, 21), mask);
+  OutReg3 = _mm_and_si128(_mm_srli_epi32(InReg1, 22), mask);
+  OutReg4 = _mm_and_si128(_mm_srli_epi32(InReg2, 23), mask);
+  _mm_storeu_si128(out + 20, OutReg1);
+  _mm_storeu_si128(out + 21, OutReg2);
+  _mm_storeu_si128(out + 22, OutReg3);
+  _mm_storeu_si128(out + 23, OutReg4);
+  OutReg1 = _mm_and_si128(_mm_srli_epi32(InReg1, 24), mask);
+  OutReg2 = _mm_and_si128(_mm_srli_epi32(InReg2, 25), mask);
+  OutReg3 = _mm_and_si128(_mm_srli_epi32(InReg1, 26), mask);
+  OutReg4 = _mm_and_si128(_mm_srli_epi32(InReg2, 27), mask);
+  _mm_storeu_si128(out + 24, OutReg1);
+  _mm_storeu_si128(out + 25, OutReg2);
+  _mm_storeu_si128(out + 26, OutReg3);
+  _mm_storeu_si128(out + 27, OutReg4);
+  OutReg1 = _mm_and_si128(_mm_srli_epi32(InReg1, 28), mask);
+  OutReg2 = _mm_and_si128(_mm_srli_epi32(InReg2, 29), mask);
+  OutReg3 = _mm_and_si128(_mm_srli_epi32(InReg1, 30), mask);
+  OutReg4 = _mm_and_si128(_mm_srli_epi32(InReg2, 31), mask);
+  _mm_storeu_si128(out + 28, OutReg1);
+  _mm_storeu_si128(out + 29, OutReg2);
+  _mm_storeu_si128(out + 30, OutReg3);
+  _mm_storeu_si128(out + 31, OutReg4);
 }
 
 static void __SIMD_fastunpack2_32(const __m128i *__restrict__ in,
