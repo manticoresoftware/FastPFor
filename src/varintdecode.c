@@ -22,6 +22,12 @@
      /* GCC-compatible compiler, targeting PowerPC with SPE */
      #include <spe.h>
 #endif
+
+#if defined(USE_SIMDE)
+#define SIMDE_ENABLE_NATIVE_ALIASES 1
+#include <simde/x86/sse4.1.h>
+#endif
+
 #include <stdint.h>
 
 #if defined(_MSC_VER)
